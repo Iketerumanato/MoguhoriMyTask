@@ -1,12 +1,16 @@
 using UnityEngine;
 
-//ƒCƒ[ƒW‚Íƒ‚ƒ“ƒnƒ“‚ÌƒJƒƒ‰
+//ã‚¤ãƒ¡ãƒ¼ã‚¸ã¯ãƒ¢ãƒ³ãƒãƒ³ã®ã‚«ãƒ¡ãƒ©
 public class CameraController : MonoBehaviour
 {
-    public GameObject targetObj = null;//’Ç‚Á‚©‚¯‚é‘ÎÛ
-    Vector3 targetPos;//‘ÎÛ‚ÌÀ•W
+    public GameObject targetObj = null;//è¿½ã£ã‹ã‘ã‚‹å¯¾è±¡
+    Vector3 targetPos;//å¯¾è±¡ã®åº§æ¨™
+    const float CamMoveAmount = 1.0f;
+    const float angleY = -20f;
+    const float angleZ = 50f;
+    const float CamAuxiliaryPower = 100f;
 
-    //@ÏZ‰ñ“]Šp‚ğ•Ê“rŠo‚¦‚Ä‚¨‚¯‚é‚æ‚¤‚É‚µ‚Ä‚¨‚­
+    //ã€€ç©ç®—å›è»¢è§’ã‚’åˆ¥é€”è¦šãˆã¦ãŠã‘ã‚‹ã‚ˆã†ã«ã—ã¦ãŠã
     float angleH;
     float angleV;
 
@@ -17,72 +21,55 @@ public class CameraController : MonoBehaviour
 
     void Update()
     {
-        // target‚ÌˆÚ“®—Ê•ªAƒJƒƒ‰‚àˆÚ“®‚·‚é
+        // targetã®ç§»å‹•é‡åˆ†ã€ã‚«ãƒ¡ãƒ©ã‚‚ç§»å‹•ã™ã‚‹
         transform.position += targetObj.transform.position - targetPos;
         targetPos = targetObj.transform.position;
 
-        // ‰EƒXƒeƒBƒbƒN‚ÌˆÚ“®—Ê
+        // å³ã‚¹ãƒ†ã‚£ãƒƒã‚¯ã®ç§»å‹•é‡
         float KeyInputX = Input.GetAxis("PAD_CAMERA_HORIZONTAL");
         float KeyInputY = Input.GetAxis("PAD_CAMERA_VERTICAL");
 
-        if (Input.GetKey(KeyCode.RightArrow)) //ƒL[ƒ{[ƒh‘€ì—p
+        if (Input.GetKey(KeyCode.RightArrow)) //ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰æ“ä½œç”¨
         {
-            KeyInputX = 1.0f;
+            KeyInputX = CamMoveAmount;
         }
-        if (Input.GetKey(KeyCode.LeftArrow)) //ƒL[ƒ{[ƒh‘€ì—p
+        if (Input.GetKey(KeyCode.LeftArrow)) //ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰æ“ä½œç”¨
         {
-            KeyInputX = -1.0f;
+            KeyInputX = -CamMoveAmount;
         }
-        if (Input.GetKey(KeyCode.UpArrow)) //ƒL[ƒ{[ƒh‘€ì—p
+        if (Input.GetKey(KeyCode.UpArrow)) //ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰æ“ä½œç”¨
         {
-            KeyInputY = -1.0f;
+            KeyInputY = -CamMoveAmount;
         }
-        if (Input.GetKey(KeyCode.DownArrow)) //ƒL[ƒ{[ƒh‘€ì—p
+        if (Input.GetKey(KeyCode.DownArrow)) //ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰æ“ä½œç”¨
         {
-            KeyInputY = 1.0f;
+            KeyInputY = CamMoveAmount;
         }
 
-        // ƒ}ƒEƒXˆÚ“®—Ê‚©‚ç‹‚ß‚½…•½E‚’¼‰ñ“]Šp
-        float deltaAngleH = KeyInputX * Time.deltaTime * 100f;
-        float deltaAngleV = -KeyInputY * Time.deltaTime * 100f; //ã‰ºˆÚ“®‚Ì‚İƒXƒeƒBƒbƒN‚ªƒŠƒo[ƒX‚µ‚Ä‚¢‚é‚½‚ß-1‚ğ‚©‚¯‚Ä‚¢‚Ü‚·
+        // ãƒã‚¦ã‚¹ç§»å‹•é‡ã‹ã‚‰æ±‚ã‚ãŸæ°´å¹³ãƒ»å‚ç›´å›è»¢è§’
+        float deltaAngleH = KeyInputX * Time.deltaTime * CamAuxiliaryPower;
+        float deltaAngleV = -KeyInputY * Time.deltaTime * CamAuxiliaryPower; //ä¸Šä¸‹ç§»å‹•ã®ã¿ã‚¹ãƒ†ã‚£ãƒƒã‚¯ãŒãƒªãƒãƒ¼ã‚¹ã—ã¦ã„ã‚‹ãŸã‚-1ã‚’ã‹ã‘ã¦ã„ã¾ã™
 
-        // Šp“x‚ğÏZ‚·‚é
+        // è§’åº¦ã‚’ç©ç®—ã™ã‚‹
         angleH += deltaAngleH;
         angleV += deltaAngleV;
 
-        // ÏZŠp“x‚ğ§ŒÀ‚·‚é
-        //Œö“]
+        // ç©ç®—è§’åº¦ã‚’åˆ¶é™ã™ã‚‹
+        //å…¬è»¢
         //float clampedAngleH = Mathf.Clamp(angleH, -180, 180);
-        //‚’¼
-        float clampedAngleV = Mathf.Clamp(angleV, -20, 50); //‚’¼•ûŒü‚Ì‚İ‚¢‚¢Š´‚¶‚É§ŒÀ
+        //å‚ç›´
+        float clampedAngleV = Mathf.Clamp(angleV, angleY, angleZ); //å‚ç›´æ–¹å‘ã®ã¿ã„ã„æ„Ÿã˜ã«åˆ¶é™
 
-        // ƒNƒ‰ƒ“ƒv‘O‚ÌÏZŠp‚©‚çƒNƒ‰ƒ“ƒvŒã‚ÌÏZŠp‚ğˆø‚¢‚ÄA‚Ç‚ê‚¾‚¯§ŒÀ”ÍˆÍ‚ğ’´‚¦‚½‚©‚ğ‹‚ß‚é
-        // ‚à‚µ§ŒÀ”ÍˆÍ“à‚È‚ç·‚Í0‚É‚È‚é‚ªAƒ}ƒCƒiƒX‘¤‚É‰z‚¦‚ê‚Îƒ}ƒCƒiƒX‚ÌAƒvƒ‰ƒX‘¤‚È‚çƒvƒ‰ƒX‚ÌŠp“x·‚ª“¾‚ç‚ê‚é
-        //float overshootH = angleH - clampedAngleH;
+        // ã‚¯ãƒ©ãƒ³ãƒ—å‰ã®ç©ç®—è§’ã‹ã‚‰ã‚¯ãƒ©ãƒ³ãƒ—å¾Œã®ç©ç®—è§’ã‚’å¼•ã„ã¦ã€ã©ã‚Œã ã‘åˆ¶é™ç¯„å›²ã‚’è¶…ãˆãŸã‹ã‚’æ±‚ã‚ã‚‹
+        // ã‚‚ã—åˆ¶é™ç¯„å›²å†…ãªã‚‰å·®ã¯0ã«ãªã‚‹ãŒã€ãƒã‚¤ãƒŠã‚¹å´ã«è¶Šãˆã‚Œã°ãƒã‚¤ãƒŠã‚¹ã®ã€ãƒ—ãƒ©ã‚¹å´ãªã‚‰ãƒ—ãƒ©ã‚¹ã®è§’åº¦å·®ãŒå¾—ã‚‰ã‚Œã‚‹
         float overshootV = angleV - clampedAngleV;
 
-        // Šp“x·•ª‚¾‚¯‰ñ“]—Ê‚ğ’²®‚µ‚ÄA§ŒÀ‚ğ’´‚¦‚È‚¢‚æ‚¤‚É‚µ‚Ä‚â‚é
-        // ÏZŠp“x‚à’²®Œã‚Ì’l‚Éã‘‚«‚·‚é
-        //deltaAngleH -= overshootH;
+        // è§’åº¦å·®åˆ†ã ã‘å›è»¢é‡ã‚’èª¿æ•´ã—ã¦ã€åˆ¶é™ã‚’è¶…ãˆãªã„ã‚ˆã†ã«ã—ã¦ã‚„ã‚‹
+        // ç©ç®—è§’åº¦ã‚‚èª¿æ•´å¾Œã®å€¤ã«ä¸Šæ›¸ãã™ã‚‹
         deltaAngleV -= overshootV;
-        //angleH = clampedAngleH;
         angleV = clampedAngleV;
 
-        /*
-        // target‚ÌˆÊ’u‚ÌY²‚ğ’†S‚ÉA‰ñ“]iŒö“]j‚·‚é
-        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow))
-        {
-            transform.RotateAround(targetPos, Vector3.up, -deltaAngleH);
-        }
-
-        // ƒJƒƒ‰‚Ì‚’¼ˆÚ“®
-        if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow))
-        {
-            transform.RotateAround(targetPos, transform.right, deltaAngleV);
-        }
-        */
-
-        transform.RotateAround(targetPos, Vector3.up, -deltaAngleH); //ÀÛ‚ÌƒJƒƒ‰ˆÚ“®ˆ—Bif‚Ì’†‚ÉŠi”[‚µ‚È‚­‚Ä‚à‚æ‚³‚»‚¤‚¾‚Á‚½‚Ì‚Åo‚µ‚½B‚Æ‚¢‚¤‚©floatŒ^‚ÌGetAxis‚ğğŒ‚É“ü‚ê‚½‚çƒGƒ‰[‚ªo‚½
+        transform.RotateAround(targetPos, Vector3.up, -deltaAngleH); //å®Ÿéš›ã®ã‚«ãƒ¡ãƒ©ç§»å‹•å‡¦ç†ã€‚ifã®ä¸­ã«æ ¼ç´ã—ãªãã¦ã‚‚ã‚ˆã•ãã†ã ã£ãŸã®ã§å‡ºã—ãŸã€‚ã¨ã„ã†ã‹floatå‹ã®GetAxisã‚’æ¡ä»¶ã«å…¥ã‚ŒãŸã‚‰ã‚¨ãƒ©ãƒ¼ãŒå‡ºãŸ
         transform.RotateAround(targetPos, transform.right, deltaAngleV);
     }
 }
