@@ -5,15 +5,18 @@ using UnityEngine.UI;
 
 public class ChangeImage02 : MonoBehaviour
 {
-    //ƒXƒe[ƒW‚ÌƒCƒ[ƒW‰æ–Ê‚Ì•\¦
+    //ã‚¹ãƒ†ãƒ¼ã‚¸ã®ã‚¤ãƒ¡ãƒ¼ã‚¸ç”»é¢ã®è¡¨ç¤º
     [SerializeField] private Image StageImage;
     [SerializeField] private Sprite[] StageSp;
 
-    //“¥‚ñ‚¾ƒXƒe[ƒWƒAƒCƒRƒ“‚Ìƒ^ƒO‚É‚æ‚Á‚Ä‰æ‘œ‚ğ•Ï‚¦A
+    int StageNum[];
+    StageNum = new int[11]{0,1,2,3,4,5,6,7,8,9,10};
+
+    //è¸ã‚“ã ã‚¹ãƒ†ãƒ¼ã‚¸ã‚¢ã‚¤ã‚³ãƒ³ã®ã‚¿ã‚°ã«ã‚ˆã£ã¦ç”»åƒã‚’å¤‰ãˆã€
     private GameObject PlayerIc;
     private IconMove02 iconmove;
 
-    //ƒAƒjƒ[ƒVƒ‡ƒ“‚ÌÄ¶‚³‚¹‚é
+    //ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ã®å†ç”Ÿã•ã›ã‚‹
     Animator ImageAnime;
 
     // Start is called before the first frame update
@@ -27,25 +30,25 @@ public class ChangeImage02 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //ŠÖ”ŒÄ‚Ño‚µ
+        //é–¢æ•°å‘¼ã³å‡ºã—
         ImageChange();
     }
 
-    //ƒCƒ[ƒW‰æ‘œ‚ÌØ‚è‘Ö‚¦AƒAƒjƒ[ƒVƒ‡ƒ“‚ÌÄ¶
+    //ã‚¤ãƒ¡ãƒ¼ã‚¸ç”»åƒã®åˆ‡ã‚Šæ›¿ãˆã€ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ã®å†ç”Ÿ
     void ImageChange()
     {
         PlayerIc = GameObject.Find("PlayerIcon");
         iconmove = PlayerIc.GetComponent<IconMove02>();
 
-        //ƒXƒe[ƒW1
-        if (iconmove.selectedStageImage == 1)
+        //ã‚¹ãƒ†ãƒ¼ã‚¸1
+        if (iconmove.selectedStageImage == StageNum[0])
         {
             StageImage.sprite = StageSp[0];
             ImageAnime.SetFloat("Speed", 1);
             ImageAnime.SetBool("Imbl", true);
         }
 
-        //ƒXƒe[ƒW2
+        //ã‚¹ãƒ†ãƒ¼ã‚¸2
         if (iconmove.selectedStageImage == 2)
         {
             StageImage.sprite = StageSp[1];
@@ -53,7 +56,7 @@ public class ChangeImage02 : MonoBehaviour
             ImageAnime.SetBool("Imbl", true);
         }
 
-        //ƒXƒe[ƒW3
+        //ã‚¹ãƒ†ãƒ¼ã‚¸3
         if (iconmove.selectedStageImage == 3)
         {
             StageImage.sprite = StageSp[2];
@@ -61,7 +64,7 @@ public class ChangeImage02 : MonoBehaviour
             ImageAnime.SetBool("Imbl", true);
         }
 
-        //ƒXƒe[ƒW4
+        //ã‚¹ãƒ†ãƒ¼ã‚¸4
         if (iconmove.selectedStageImage == 4)
         {
             StageImage.sprite = StageSp[3];
@@ -69,7 +72,7 @@ public class ChangeImage02 : MonoBehaviour
             ImageAnime.SetBool("Imbl", true);
         }
 
-        //ƒXƒe[ƒW5
+        //ã‚¹ãƒ†ãƒ¼ã‚¸5
         if (iconmove.selectedStageImage == 5)
         {
             StageImage.sprite = StageSp[4];
@@ -77,7 +80,7 @@ public class ChangeImage02 : MonoBehaviour
             ImageAnime.SetBool("Imbl", true);
         }
 
-        //ƒXƒe[ƒW6
+        //ã‚¹ãƒ†ãƒ¼ã‚¸6
         if (iconmove.selectedStageImage == 6)
         {
             StageImage.sprite = StageSp[5];
@@ -85,7 +88,7 @@ public class ChangeImage02 : MonoBehaviour
             ImageAnime.SetBool("Imbl", true);
         }
 
-        //ƒXƒe[ƒW7
+        //ã‚¹ãƒ†ãƒ¼ã‚¸7
         if (iconmove.selectedStageImage == 7)
         {
             StageImage.sprite = StageSp[6];
@@ -93,7 +96,7 @@ public class ChangeImage02 : MonoBehaviour
             ImageAnime.SetBool("Imbl", true);
         }
 
-        //ƒXƒe[ƒW8
+        //ã‚¹ãƒ†ãƒ¼ã‚¸8
         if (iconmove.selectedStageImage == 8)
         {
             StageImage.sprite = StageSp[7];
@@ -102,7 +105,7 @@ public class ChangeImage02 : MonoBehaviour
             
         }
 
-        //ƒXƒe[ƒW9
+        //ã‚¹ãƒ†ãƒ¼ã‚¸9
         if (iconmove.selectedStageImage == 9)
         {
             StageImage.sprite = StageSp[8];
@@ -110,7 +113,7 @@ public class ChangeImage02 : MonoBehaviour
             ImageAnime.SetBool("Imbl", true);
         }
 
-        //ƒXƒe[ƒW10
+        //ã‚¹ãƒ†ãƒ¼ã‚¸10
         if (iconmove.selectedStageImage == 10)
         {
             StageImage.sprite = StageSp[9];
@@ -118,7 +121,7 @@ public class ChangeImage02 : MonoBehaviour
             ImageAnime.SetBool("Imbl", true);
         }
 
-        //ƒAƒjƒ[ƒVƒ‡ƒ“‚ÌÄ“xÄ¶‚Ì‚½‚ß
+        //ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ã®å†åº¦å†ç”Ÿã®ãŸã‚
         if (iconmove.selectedStageImage == 0)
         {
             //ImageAnime.SetBool("Imbl", false);
