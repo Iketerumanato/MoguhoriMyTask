@@ -41,7 +41,7 @@ public class ChangeImage02 : MonoBehaviour
         iconmove = PlayerIc.GetComponent<IconMove02>();
 
         //ステージ1
-        if (iconmove.selectedStageImage == StageNum[0])
+        if (iconmove.selectedStageImage == StageNum[1])
         {
             StageImage.sprite = StageSp[0];
             ImageAnime.SetFloat("Speed", 1);
@@ -49,7 +49,7 @@ public class ChangeImage02 : MonoBehaviour
         }
 
         //ステージ2
-        if (iconmove.selectedStageImage == 2)
+        if (iconmove.selectedStageImage == StageNum[2])
         {
             StageImage.sprite = StageSp[1];
             ImageAnime.SetFloat("Speed", 1);
@@ -57,7 +57,7 @@ public class ChangeImage02 : MonoBehaviour
         }
 
         //ステージ3
-        if (iconmove.selectedStageImage == 3)
+        if (iconmove.selectedStageImage == StageNum[3])
         {
             StageImage.sprite = StageSp[2];
             ImageAnime.SetFloat("Speed", 1);
@@ -65,7 +65,7 @@ public class ChangeImage02 : MonoBehaviour
         }
 
         //ステージ4
-        if (iconmove.selectedStageImage == 4)
+        if (iconmove.selectedStageImage == StageNum[4])
         {
             StageImage.sprite = StageSp[3];
             ImageAnime.SetFloat("Speed", 1);
@@ -73,7 +73,7 @@ public class ChangeImage02 : MonoBehaviour
         }
 
         //ステージ5
-        if (iconmove.selectedStageImage == 5)
+        if (iconmove.selectedStageImage == StageNum[5])
         {
             StageImage.sprite = StageSp[4];
             ImageAnime.SetFloat("Speed", 1);
@@ -81,7 +81,7 @@ public class ChangeImage02 : MonoBehaviour
         }
 
         //ステージ6
-        if (iconmove.selectedStageImage == 6)
+        if (iconmove.selectedStageImage == StageNum[6])
         {
             StageImage.sprite = StageSp[5];
             ImageAnime.SetFloat("Speed", 1);
@@ -89,7 +89,7 @@ public class ChangeImage02 : MonoBehaviour
         }
 
         //ステージ7
-        if (iconmove.selectedStageImage == 7)
+        if (iconmove.selectedStageImage == StageNum[7])
         {
             StageImage.sprite = StageSp[6];
             ImageAnime.SetFloat("Speed", 1);
@@ -97,7 +97,7 @@ public class ChangeImage02 : MonoBehaviour
         }
 
         //ステージ8
-        if (iconmove.selectedStageImage == 8)
+        if (iconmove.selectedStageImage == StageNum[8])
         {
             StageImage.sprite = StageSp[7];
             ImageAnime.SetFloat("Speed", 1);
@@ -106,7 +106,7 @@ public class ChangeImage02 : MonoBehaviour
         }
 
         //ステージ9
-        if (iconmove.selectedStageImage == 9)
+        if (iconmove.selectedStageImage == StageNum[9])
         {
             StageImage.sprite = StageSp[8];
             ImageAnime.SetFloat("Speed", 1);
@@ -114,7 +114,7 @@ public class ChangeImage02 : MonoBehaviour
         }
 
         //ステージ10
-        if (iconmove.selectedStageImage == 10)
+        if (iconmove.selectedStageImage == StageNum[10])
         {
             StageImage.sprite = StageSp[9];
             ImageAnime.SetFloat("Speed", 1);
@@ -122,7 +122,7 @@ public class ChangeImage02 : MonoBehaviour
         }
 
         //アニメーションの再度再生のため
-        if (iconmove.selectedStageImage == 0)
+        if (iconmove.selectedStageImage == StageNum[0])
         {
             //ImageAnime.SetBool("Imbl", false);
             ImageAnime.SetFloat("Speed", -1);
