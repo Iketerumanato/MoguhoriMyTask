@@ -21,30 +21,24 @@ public class IconMove02 : MonoBehaviour
     float Pad_Vertical;
 
     private bool backToTitle;
-    [SerializeField] private GameObject ExitUI;//ƒ|[ƒY‚Ì‰æ‘œ
+    [SerializeField] private GameObject ExitUI;//ãƒãƒ¼ã‚ºã®ç”»åƒ
     private bool lastFrameIsPause;
 
-    //ƒAƒCƒRƒ“‚ÌƒXƒs[ƒh
+    //ã‚¢ã‚¤ã‚³ãƒ³ã®ã‚¹ãƒ”ãƒ¼ãƒ‰
     [SerializeField] private float speed_Ic;
 
-    //ã‰º‚ÌˆÚ“®§ŒÀ
+    //ä¸Šä¸‹ã®ç§»å‹•åˆ¶é™
     [SerializeField] private float maxY;
     [SerializeField] private float minY;
 
-    //¶‰E‚ÌˆÚ“®§ŒÀ
+    //å·¦å³ã®ç§»å‹•åˆ¶é™
     [SerializeField] private float maxX;
     [SerializeField] private float minX;
 
-    //‰Ÿ‚µ‚Á‚Ï–h~
-    //private bool PushFlg = false;
-
-    //ƒXƒe[ƒW‚Ì”Ô†ŠÇ—
-    //public int StageNum;
-
-    //ƒXƒe[ƒW‚ÌƒCƒ[ƒW‰æ‘œ‚ÌØ‚è‘Ö‚¦‚Ì‚½‚ß
+    //ã‚¹ãƒ†ãƒ¼ã‚¸ã®ã‚¤ãƒ¡ãƒ¼ã‚¸ç”»åƒã®åˆ‡ã‚Šæ›¿ãˆã®ãŸã‚
     [SerializeField] private GameObject StageImageObj;
 
-    //‘I‘ğ‚µ‚½‚ÌSE‚ğ–Â‚ç‚·
+    //é¸æŠã—ãŸæ™‚ã®SEã‚’é³´ã‚‰ã™
     public AudioClip selectSE;
     AudioSource audioSource;
 
@@ -66,19 +60,19 @@ public class IconMove02 : MonoBehaviour
 
         D_Pad_Horizontal = Input.GetAxis("D_PAD_HORIZONTAL");
 
-        if (Input.GetKey(KeyCode.D)) //ƒL[ƒ{[ƒh‘€ì—p
+        if (Input.GetKey(KeyCode.D)) //ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰æ“ä½œç”¨
         {
             Pad_Horizontal = 1.0f;
         }
-        if (Input.GetKey(KeyCode.A)) //ƒL[ƒ{[ƒh‘€ì—p
+        if (Input.GetKey(KeyCode.A)) //ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰æ“ä½œç”¨
         {
             Pad_Horizontal = -1.0f;
         }
-        if (Input.GetKey(KeyCode.W)) //ƒL[ƒ{[ƒh‘€ì—p
+        if (Input.GetKey(KeyCode.W)) //ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰æ“ä½œç”¨
         {
             Pad_Vertical = -1.0f;
         }
-        if (Input.GetKey(KeyCode.S)) //ƒL[ƒ{[ƒh‘€ì—p
+        if (Input.GetKey(KeyCode.S)) //ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰æ“ä½œç”¨
         {
             Pad_Vertical = 1.0f;
         }
@@ -113,8 +107,8 @@ public class IconMove02 : MonoBehaviour
         {
             audioSource.PlayOneShot(selectSE);
 
-            fadeIn.isFading = true; //ƒtƒF[ƒhŠJn
-            fadeIn.isIn = false; //ƒtƒF[ƒhƒAƒEƒg‚ğs‚¤
+            fadeIn.isFading = true; //ãƒ•ã‚§ãƒ¼ãƒ‰é–‹å§‹
+            fadeIn.isIn = false; //ãƒ•ã‚§ãƒ¼ãƒ‰ã‚¢ã‚¦ãƒˆã‚’è¡Œã†
             backToTitle = true;
         }
 
@@ -146,7 +140,7 @@ public class IconMove02 : MonoBehaviour
         }
         else
         {
-            if (D_Pad_Horizontal == -1) //¶‚Ö
+            if (D_Pad_Horizontal == -1) //å·¦ã¸
             {
                 if (D_Pad_selected != 0)
                 {
@@ -156,7 +150,7 @@ public class IconMove02 : MonoBehaviour
                 isDoneInLastFrame = true;
             }
 
-            else if (D_Pad_Horizontal == 1) //‰E‚Ö
+            else if (D_Pad_Horizontal == 1) //å³ã¸
             {
                 if (D_Pad_selected != 10)
                 {
@@ -168,10 +162,10 @@ public class IconMove02 : MonoBehaviour
         }
     }
 
-    //ƒAƒCƒRƒ“‚ÌˆÚ“®
+    //ã‚¢ã‚¤ã‚³ãƒ³ã®ç§»å‹•
     void Move(float Pad_Horizontal, float Pad_Vertical)
     {
-        //ƒAƒCƒRƒ“‚ÌÀ•W
+        //ã‚¢ã‚¤ã‚³ãƒ³ã®åº§æ¨™
         Vector2 Iconpos = transform.position;
 
         if (Pad_Vertical > 0)
@@ -194,23 +188,23 @@ public class IconMove02 : MonoBehaviour
             Iconpos.x += speed_Ic;
         }
 
-        //ã‰º‚ÌˆÚ“®§ŒÀ
+        //ä¸Šä¸‹ã®ç§»å‹•åˆ¶é™
         Iconpos.y = Mathf.Clamp(Iconpos.y, minY, maxY);
 
-        //¶‰E‚ÌˆÚ“®§ŒÀ
+        //å·¦å³ã®ç§»å‹•åˆ¶é™
         Iconpos.x = Mathf.Clamp(Iconpos.x, minX, maxX);
 
-        //Œ»İ‚ÌÀ•W‚Ì•Û‘¶
+        //ç¾åœ¨ã®åº§æ¨™ã®ä¿å­˜
         transform.position = Iconpos;
 
-        //ƒRƒ“ƒ\[ƒ‹‚Å‚Ì•\¦
+        //ã‚³ãƒ³ã‚½ãƒ¼ãƒ«ã§ã®è¡¨ç¤º
         //Debug.Log(Iconpos.y);
     }
 
-    //ƒAƒCƒRƒ“‚ªƒXƒe[ƒWƒAƒCƒRƒ“‚ÉG‚ê‚½uŠÔ‚Ìˆ—(ChangeImage‚É“n‚·)
+    //ã‚¢ã‚¤ã‚³ãƒ³ãŒã‚¹ãƒ†ãƒ¼ã‚¸ã‚¢ã‚¤ã‚³ãƒ³ã«è§¦ã‚ŒãŸç¬é–“ã®å‡¦ç†(ChangeImageã«æ¸¡ã™)
     void OnTriggerEnter2D(Collider2D other)
     {
-        //ƒV[ƒ“‚ÌˆÚ“®
+        //ã‚·ãƒ¼ãƒ³ã®ç§»å‹•
         //1
         if (other.gameObject.CompareTag("Stage01"))
         {
@@ -292,7 +286,7 @@ public class IconMove02 : MonoBehaviour
         }
     }
 
-    //‚±‚±‚ÅƒV[ƒ“ˆÚ“®
+    //ã“ã“ã§ã‚·ãƒ¼ãƒ³ç§»å‹•
     void OnTriggerStay2D(Collider2D other)
     {
         //1
@@ -300,23 +294,16 @@ public class IconMove02 : MonoBehaviour
         {
             if ((Input.GetButtonDown("DECISION")) && (!lastFrameIsPause))
             {
-                //if (PushFlg == false)
-                //{
-                //    PushFlg = true;
-                //    //SceneManager.LoadSceneAsync("");
-                //    audioSource.PlayOneShot(selectSE);
-                //    Debug.Log("ƒXƒe[ƒW‚P‚ÖˆÚ“®");
-                //}
                 audioSource.PlayOneShot(selectSE);
 
                 selectedStage = 1;
                 Debug.Log(selectedStage);
-                fadeIn.isFading = true; //ƒtƒF[ƒhŠJn
-                fadeIn.isIn = false; //ƒtƒF[ƒhƒAƒEƒg‚ğs‚¤
+                fadeIn.isFading = true; //ãƒ•ã‚§ãƒ¼ãƒ‰é–‹å§‹
+                fadeIn.isIn = false; //ãƒ•ã‚§ãƒ¼ãƒ‰ã‚¢ã‚¦ãƒˆã‚’è¡Œã†
 
                 
                 //SceneManager.LoadSceneAsync("");
-                Debug.Log("ƒXƒe[ƒW‚P‚ÖˆÚ“®");
+                Debug.Log("ã‚¹ãƒ†ãƒ¼ã‚¸ï¼‘ã¸ç§»å‹•");
             }
         }
 
@@ -325,22 +312,14 @@ public class IconMove02 : MonoBehaviour
         {
             if ((Input.GetButtonDown("DECISION")) && (!lastFrameIsPause))
             {
-                //if (PushFlg == false)
-                //{
-                //    PushFlg = true;
-                //    audioSource.PlayOneShot(selectSE);
-                //    //SceneManager.LoadSceneAsync("");
-                //    Debug.Log("ƒXƒe[ƒW‚Q‚ÖˆÚ“®");
-                //}
-
                 selectedStage = 2;
                 Debug.Log(selectedStage);
-                fadeIn.isFading = true; //ƒtƒF[ƒhŠJn
-                fadeIn.isIn = false; //ƒtƒF[ƒhƒAƒEƒg‚ğs‚¤
+                fadeIn.isFading = true; //ãƒ•ã‚§ãƒ¼ãƒ‰é–‹å§‹
+                fadeIn.isIn = false; //ãƒ•ã‚§ãƒ¼ãƒ‰ã‚¢ã‚¦ãƒˆã‚’è¡Œã†
 
                 audioSource.PlayOneShot(selectSE);
                 //SceneManager.LoadSceneAsync("");
-                Debug.Log("ƒXƒe[ƒW‚Q‚ÖˆÚ“®");
+                Debug.Log("ã‚¹ãƒ†ãƒ¼ã‚¸ï¼’ã¸ç§»å‹•");
             }
         }
 
@@ -349,22 +328,14 @@ public class IconMove02 : MonoBehaviour
         {
             if ((Input.GetButtonDown("DECISION")) && (!lastFrameIsPause))
             {
-                //if (PushFlg == false)
-                //{
-                //    PushFlg = true;
-                //    audioSource.PlayOneShot(selectSE);
-                //    //SceneManager.LoadSceneAsync("");
-                //    Debug.Log("ƒXƒe[ƒW‚R‚ÖˆÚ“®");
-                //}
-
                 selectedStage = 3;
                 Debug.Log(selectedStage);
-                fadeIn.isFading = true; //ƒtƒF[ƒhŠJn
-                fadeIn.isIn = false; //ƒtƒF[ƒhƒAƒEƒg‚ğs‚¤
+                fadeIn.isFading = true; //ãƒ•ã‚§ãƒ¼ãƒ‰é–‹å§‹
+                fadeIn.isIn = false; //ãƒ•ã‚§ãƒ¼ãƒ‰ã‚¢ã‚¦ãƒˆã‚’è¡Œã†
 
                 audioSource.PlayOneShot(selectSE);
                 //SceneManager.LoadSceneAsync("");
-                Debug.Log("ƒXƒe[ƒW‚R‚ÖˆÚ“®");
+                Debug.Log("ã‚¹ãƒ†ãƒ¼ã‚¸ï¼“ã¸ç§»å‹•");
             }
         }
 
@@ -373,178 +344,24 @@ public class IconMove02 : MonoBehaviour
         {
             if ((Input.GetButtonDown("DECISION")) && (!lastFrameIsPause))
             {
-                //if (PushFlg == false)
-                //{
-                //    PushFlg = true;
-                //    audioSource.PlayOneShot(selectSE);
-                //    //SceneManager.LoadSceneAsync("");
-                //    Debug.Log("ƒXƒe[ƒW‚S‚ÖˆÚ“®");
-                //}
-
                 selectedStage = 4;
                 Debug.Log(selectedStage);
-                fadeIn.isFading = true; //ƒtƒF[ƒhŠJn
-                fadeIn.isIn = false; //ƒtƒF[ƒhƒAƒEƒg‚ğs‚¤
+                fadeIn.isFading = true; //ãƒ•ã‚§ãƒ¼ãƒ‰é–‹å§‹
+                fadeIn.isIn = false; //ãƒ•ã‚§ãƒ¼ãƒ‰ã‚¢ã‚¦ãƒˆã‚’è¡Œã†
 
                 audioSource.PlayOneShot(selectSE);
                 //SceneManager.LoadSceneAsync("");
-                Debug.Log("ƒXƒe[ƒW‚S‚ÖˆÚ“®");
+                Debug.Log("ã‚¹ãƒ†ãƒ¼ã‚¸ï¼”ã¸ç§»å‹•");
             }
         }
-
-        /*
-        //5
-        if (other.gameObject.CompareTag("Stage05"))
-        {
-            if ((Input.GetButtonDown("DECISION")) && (!lastFrameIsPause))
-            {
-                //if (PushFlg == false)
-                //{
-                //    PushFlg = true;
-                //    audioSource.PlayOneShot(selectSE);
-                //    //SceneManager.LoadSceneAsync("");
-                //    Debug.Log("ƒXƒe[ƒW‚S‚ÖˆÚ“®");
-                //}
-
-                selectedStage = 5;
-                Debug.Log(selectedStage);
-                fadeIn.isFading = true; //ƒtƒF[ƒhŠJn
-                fadeIn.isIn = false; //ƒtƒF[ƒhƒAƒEƒg‚ğs‚¤
-
-                audioSource.PlayOneShot(selectSE);
-                //SceneManager.LoadSceneAsync("");
-                Debug.Log("ƒXƒe[ƒW‚T‚ÖˆÚ“®");
-            }
-        }
-
-        //6
-        if (other.gameObject.CompareTag("Stage06"))
-        {
-            if ((Input.GetButtonDown("DECISION")) && (!lastFrameIsPause))
-            {
-                //if (PushFlg == false)
-                //{
-                //    PushFlg = true;
-                //    audioSource.PlayOneShot(selectSE);
-                //    //SceneManager.LoadSceneAsync("");
-                //    Debug.Log("ƒXƒe[ƒW‚S‚ÖˆÚ“®");
-                //}
-
-                selectedStage = 6;
-                Debug.Log(selectedStage);
-                fadeIn.isFading = true; //ƒtƒF[ƒhŠJn
-                fadeIn.isIn = false; //ƒtƒF[ƒhƒAƒEƒg‚ğs‚¤
-
-                audioSource.PlayOneShot(selectSE);
-                //SceneManager.LoadSceneAsync("");
-                Debug.Log("ƒXƒe[ƒW‚U‚ÖˆÚ“®");
-            }
-        }
-
-        //7
-        if (other.gameObject.CompareTag("Stage07"))
-        {
-            if ((Input.GetButtonDown("DECISION")) && (!lastFrameIsPause))
-            {
-                //if (PushFlg == false)
-                //{
-                //    PushFlg = true;
-                //    audioSource.PlayOneShot(selectSE);
-                //    //SceneManager.LoadSceneAsync("");
-                //    Debug.Log("ƒXƒe[ƒW‚S‚ÖˆÚ“®");
-                //}
-
-                selectedStage = 7;
-                Debug.Log(selectedStage);
-                fadeIn.isFading = true; //ƒtƒF[ƒhŠJn
-                fadeIn.isIn = false; //ƒtƒF[ƒhƒAƒEƒg‚ğs‚¤
-
-                audioSource.PlayOneShot(selectSE);
-                //SceneManager.LoadSceneAsync("");
-                Debug.Log("ƒXƒe[ƒW‚V‚ÖˆÚ“®");
-            }
-        }
-
-        //8
-        if (other.gameObject.CompareTag("Stage08"))
-        {
-            if ((Input.GetButtonDown("DECISION")) && (!lastFrameIsPause))
-            {
-                //if (PushFlg == false)
-                //{
-                //    PushFlg = true;
-                //    audioSource.PlayOneShot(selectSE);
-                //    //SceneManager.LoadSceneAsync("");
-                //    Debug.Log("ƒXƒe[ƒW‚S‚ÖˆÚ“®");
-                //}
-
-                selectedStage = 8;
-                Debug.Log(selectedStage);
-                fadeIn.isFading = true; //ƒtƒF[ƒhŠJn
-                fadeIn.isIn = false; //ƒtƒF[ƒhƒAƒEƒg‚ğs‚¤
-
-                audioSource.PlayOneShot(selectSE);
-                //SceneManager.LoadSceneAsync("");
-                Debug.Log("ƒXƒe[ƒW‚W‚ÖˆÚ“®");
-            }
-        }
-
-        //9
-        if (other.gameObject.CompareTag("Stage09"))
-        {
-            if ((Input.GetButtonDown("DECISION")) && (!lastFrameIsPause))
-            {
-                //if (PushFlg == false)
-                //{
-                //    PushFlg = true;
-                //    audioSource.PlayOneShot(selectSE);
-                //    //SceneManager.LoadSceneAsync("");
-                //    Debug.Log("ƒXƒe[ƒW‚S‚ÖˆÚ“®");
-                //}
-
-                selectedStage = 9;
-                Debug.Log(selectedStage);
-                fadeIn.isFading = true; //ƒtƒF[ƒhŠJn
-                fadeIn.isIn = false; //ƒtƒF[ƒhƒAƒEƒg‚ğs‚¤
-
-                audioSource.PlayOneShot(selectSE);
-                //SceneManager.LoadSceneAsync("");
-                Debug.Log("ƒXƒe[ƒW‚X‚ÖˆÚ“®");
-            }
-        }
-
-        //10
-        if (other.gameObject.CompareTag("Stage10"))
-        {
-            ((Input.GetButtonDown("DECISION")) && (!lastFrameIsPause))
-            {
-                //if (PushFlg == false)
-                //{
-                //    PushFlg = true;
-                //    audioSource.PlayOneShot(selectSE);
-                //    //SceneManager.LoadSceneAsync("");
-                //    Debug.Log("ƒXƒe[ƒW‚S‚ÖˆÚ“®");
-                //}
-
-                selectedStage = 10;
-                Debug.Log(selectedStage);
-                fadeIn.isFading = true; //ƒtƒF[ƒhŠJn
-                fadeIn.isIn = false; //ƒtƒF[ƒhƒAƒEƒg‚ğs‚¤
-
-                audioSource.PlayOneShot(selectSE);
-                //SceneManager.LoadSceneAsync("");
-                Debug.Log("ƒXƒe[ƒW‚P‚O‚ÖˆÚ“®");
-            }
-        }
-        */
     }
 
-    //ƒAƒCƒRƒ“‚ªƒXƒe[ƒWƒAƒCƒRƒ“‚©‚ç—£‚ê‚½
+    //ã‚¢ã‚¤ã‚³ãƒ³ãŒã‚¹ãƒ†ãƒ¼ã‚¸ã‚¢ã‚¤ã‚³ãƒ³ã‹ã‚‰é›¢ã‚ŒãŸæ™‚
     void OnTriggerExit2D(Collider2D other)
     {
         selectedStage = 0;
         selectedStageImage = 0;
-        Debug.Log("o‚½");
+        Debug.Log("å‡ºãŸ");
     }
 
     void LoadTitleScene()
