@@ -210,7 +210,6 @@ public class IconMove02 : MonoBehaviour
         {
             selectedStageImage = 1;
             D_Pad_selected = 1;
-            Debug.Log(selectedStage);
         }
 
         //2
@@ -218,7 +217,6 @@ public class IconMove02 : MonoBehaviour
         {
             selectedStageImage = 2;
             D_Pad_selected = 2;
-            Debug.Log(selectedStage);
         }
 
         //2
@@ -226,7 +224,6 @@ public class IconMove02 : MonoBehaviour
         {
             selectedStageImage = 3;
             D_Pad_selected = 3;
-            Debug.Log(selectedStage);
         }
 
         //4
@@ -234,7 +231,6 @@ public class IconMove02 : MonoBehaviour
         {
             selectedStageImage = 4;
             D_Pad_selected = 4;
-            Debug.Log(selectedStage);
         }
 
         //5
@@ -242,7 +238,6 @@ public class IconMove02 : MonoBehaviour
         {
             selectedStageImage = 5;
             D_Pad_selected = 5;
-            Debug.Log(selectedStage);
         }
 
         //6
@@ -250,7 +245,6 @@ public class IconMove02 : MonoBehaviour
         {
             selectedStageImage = 6;
             D_Pad_selected = 6;
-            Debug.Log(selectedStage);
         }
 
         //7
@@ -258,7 +252,6 @@ public class IconMove02 : MonoBehaviour
         {
             selectedStageImage = 7;
             D_Pad_selected = 7;
-            Debug.Log(selectedStage);
         }
 
         //8
@@ -266,7 +259,6 @@ public class IconMove02 : MonoBehaviour
         {
             selectedStageImage = 8;
             D_Pad_selected = 8;
-            Debug.Log(selectedStage);
         }
 
         //9
@@ -274,7 +266,6 @@ public class IconMove02 : MonoBehaviour
         {
             selectedStageImage = 9;
             D_Pad_selected = 9;
-            Debug.Log(selectedStage);
         }
 
         //10
@@ -282,7 +273,6 @@ public class IconMove02 : MonoBehaviour
         {
             selectedStageImage = 10;
             D_Pad_selected = 10;
-            Debug.Log(selectedStage);
         }
     }
 
@@ -300,10 +290,6 @@ public class IconMove02 : MonoBehaviour
                 Debug.Log(selectedStage);
                 fadeIn.isFading = true; //フェード開始
                 fadeIn.isIn = false; //フェードアウトを行う
-
-                
-                //SceneManager.LoadSceneAsync("");
-                Debug.Log("ステージ１へ移動");
             }
         }
 
@@ -318,8 +304,6 @@ public class IconMove02 : MonoBehaviour
                 fadeIn.isIn = false; //フェードアウトを行う
 
                 audioSource.PlayOneShot(selectSE);
-                //SceneManager.LoadSceneAsync("");
-                Debug.Log("ステージ２へ移動");
             }
         }
 
@@ -334,8 +318,6 @@ public class IconMove02 : MonoBehaviour
                 fadeIn.isIn = false; //フェードアウトを行う
 
                 audioSource.PlayOneShot(selectSE);
-                //SceneManager.LoadSceneAsync("");
-                Debug.Log("ステージ３へ移動");
             }
         }
 
@@ -350,8 +332,6 @@ public class IconMove02 : MonoBehaviour
                 fadeIn.isIn = false; //フェードアウトを行う
 
                 audioSource.PlayOneShot(selectSE);
-                //SceneManager.LoadSceneAsync("");
-                Debug.Log("ステージ４へ移動");
             }
         }
     }
@@ -361,7 +341,6 @@ public class IconMove02 : MonoBehaviour
     {
         selectedStage = 0;
         selectedStageImage = 0;
-        Debug.Log("出た");
     }
 
     void LoadTitleScene()
